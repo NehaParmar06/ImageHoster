@@ -40,22 +40,30 @@ public class ImageController {
         return "images";
     }
 
-    @RequestMapping("/images/{title}")
-    public String showImage(@PathVariable("title") String title, Model model) {
-//        Date date = new Date();
-//        Image image = null;
-//        if (title.equals("Dr. Strange")) {
-//            image = new Image(1, "Dr. Strange", hardCodedImage.getDrStrange(), "Dr. Strange has a time stone", date);
-//        } else if (title.equals("SpiderMan")) {
-//            image = new Image(2, "SpiderMan", hardCodedImage.getSpiderMan(), "Spider man dies in Infinity War", date);
-//        }
+//    @RequestMapping("/images/{title}")
+//    public String showImage(@PathVariable("title") String title, Model model) {
+////        Date date = new Date();
+////        Image image = null;
+////        if (title.equals("Dr. Strange")) {
+////            image = new Image(1, "Dr. Strange", hardCodedImage.getDrStrange(), "Dr. Strange has a time stone", date);
+////        } else if (title.equals("SpiderMan")) {
+////            image = new Image(2, "SpiderMan", hardCodedImage.getSpiderMan(), "Spider man dies in Infinity War", date);
+////        }
+////
+////        model.addAttribute("image", image);
 //
+//        Image image = imageService.getImageByTitle(title);
 //        model.addAttribute("image", image);
+//        model.addAttribute("tags", image.getTags());
+//        return "images/images";
+//    }
 
-        Image image = imageService.getImageByTitle(title);
+    @RequestMapping("/images/{id}")
+    public String showImage(@PathVariable("id") int id, Model model){
+        Image image = imageService.getImage(id);
         model.addAttribute("image", image);
         model.addAttribute("tags", image.getTags());
-        return "images/image";
+        return "images/images";
     }
 
     //This controller method is called when the request pattern is of type 'images/upload'
