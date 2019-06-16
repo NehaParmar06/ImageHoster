@@ -12,14 +12,9 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    public HomeController(){
+    public HomeController() {
         System.out.println("**** HomeController ****");
     }
-
-//    @RequestMapping("/")
-//    public String getHomePage(){
-//        return "index";
-//    }
 
     @Autowired
     private ImageService imageService;
