@@ -1,6 +1,7 @@
 package com.upgrad.imagehoster.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 
 //@Entity annotation specifies that the corresponding class is a JPA entity
@@ -27,6 +28,14 @@ public class UserProfile {
 
     @Column(name = "mobile_number")
     private String mobileNumber;
+
+
+    @OneToOne(fetch = FetchType.EAGER)
+    //Below annotation indicates that the name of the column in 'images' table referring the primary key in 'users' table will be 'user_id'
+    @JoinColumn(name = "password")
+    private User user;
+
+
 
     public UserProfile() {
     }
@@ -62,6 +71,14 @@ public class UserProfile {
 
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
+    }
+
+    public User getPassword() {
+        return user;
+    }
+
+    public void setPassword(User user) {
+        this.user = user;
     }
 
 }

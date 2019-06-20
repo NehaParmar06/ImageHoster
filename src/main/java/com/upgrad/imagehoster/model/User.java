@@ -1,6 +1,7 @@
 package com.upgrad.imagehoster.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class User {
     private String username;
 
     @Column(name = "password")
+    //@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$", message="SSN must use numbers in this format: XXX-YY-ZZZZ")
     private String password;
 
     //The 'users' table is mapped to 'user_profile' table with One:One mapping

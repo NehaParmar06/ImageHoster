@@ -70,6 +70,13 @@ public class ImageRepository {
         return image;
     }
 
+//    public int getImageUser(Integer imageId){
+//        EntityManager em = emf.createEntityManager();
+//        TypedQuery<Image> typedQuery = em.createQuery("SELECT i from Image i where i.id =:imageId", Image.class).setParameter("imageId", imageId);
+//        int userID = typedQuery.getSingleResult();
+//        return userID;
+//    }
+
     //The method receives the Image object to be updated in the database
     //Creates an instance of EntityManager
     //Starts a transaction

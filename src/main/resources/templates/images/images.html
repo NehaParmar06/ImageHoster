@@ -27,9 +27,13 @@
 
     <div>
         <a th:href="@{/editImage(imageId=${image.id})}">Edit</a>
+        <div th:if="${editError}">Only the owner of the image can edit the image</div>
+        <div><br></div>
+
         <form th:action="@{/deleteImage(imageId=${image.id})}" th:method="delete">
             <input type="submit" value="Delete"/>
         </form>
+        <div th:if="${deleteError}">Only the owner of the image can delete the image</div>
     </div>
 
 </main>
