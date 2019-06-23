@@ -160,7 +160,7 @@ public class ImageController {
     //The method calls the deleteImage() method in the business logic passing the id of the image to be deleted
     //Looks for a controller method with request mapping of type '/images'
     @RequestMapping(value = "/deleteImage", method = RequestMethod.DELETE)
-    public String deleteImageSubmit(@RequestParam(name = "imageId") Integer imageId, HttpSession session) {
+    public String deleteImageSubmit(@RequestParam(name = "imageId") Integer imageId, HttpSession session, Model model) {
 
 
         Image image = imageService.getImage(imageId);
@@ -171,7 +171,7 @@ public class ImageController {
             imageService.deleteImage(imageId);
             return "redirect:/images";
         }else{
-            //model.addAttribute("deleteError", true);
+            model.addAttribute("deleteError", true);
             return "redirect:/images/" + imageId;
         }
     }

@@ -25,7 +25,6 @@ public class User {
     private String username;
 
     @Column(name = "password")
-    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")
     private String password;
 
     //The 'users' table is mapped to 'user_profile' table with One:One mapping
