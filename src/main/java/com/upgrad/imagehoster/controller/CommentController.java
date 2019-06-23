@@ -35,19 +35,21 @@ public class CommentController {
     public String addComment(@RequestParam("tags") String tags, Image newImage, HttpSession session, Comment comment, Model model) throws IOException {
 
         User user = (User) session.getAttribute("loggeduser");
+
+        session.setAttribute("loggeduser", user);
         comment.setUser(user);
         comment.setCreatedDate(new Date());
         comment.setImage(newImage);
         commentService.addNewComment(comment);
         //imageController.showImage(newImage.getId(), model);
 
-        return "redirect:/images/" + newImage.getId() + "/" + newImage.getTitle() + "/comments";
+        return "/images/" + newImage.getId() + "/" + newImage.getTitle()+ "/comments";
     }
 //
     @RequestMapping(value = "/images/images", method = RequestMethod.GET)
     public String getAllImages(@RequestParam("image") Image image, @RequestParam("user") User user) {
        List<Comment> comments = commentService.getAllComments(image);
 //        commentService.getAllComments("image", image);
-        return "redirect:/images/" + image.getId() + "/" + image.getTitle() + "/comments";
+        return "/images/" + image.getId() + "/" + image.getTitle()+ "/comments";
     }
 }
